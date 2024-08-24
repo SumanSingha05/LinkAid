@@ -47,7 +47,7 @@ const Details = () => {
   };
 
   return (
-    <div className="border-none border-black flex flex-row bg-gradient-to-r from-violet-500 via-purple-300 to-white">
+    <div className="border-none h-[100vh] border-black flex flex-row bg-gradient-to-r from-violet-500 via-purple-300 to-white">
       <div className="border-none mt-24 mb-24 w-[60vw] p-10 pt-5 pr-5">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-black text-3xl font-semibold text-center">
