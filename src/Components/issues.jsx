@@ -75,8 +75,8 @@ const Issues = () => {
           Report Issues
         </h1>
       </div>
-      <div className="w-full m-auto mt-28 flex flex-row flex-wrap justify-evenly">
-        <div className="border-none h-[300px] shadow-lg shadow-[rgba(75,30,133,1)] rounded-2xl w-1/5 flex flex-col justify-center items-center justify-evenly bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)]">
+      <div className="w-full m-auto mt-28 flex flex-row flex-wrap justify-evenly ">
+        <div className="border-none h-[300px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 shadow-[rgba(75,30,133,1)] rounded-2xl w-1/5 flex flex-col justify-center items-center justify-evenly bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)]">
           <h1 className="mb-5 mt-5 bg-gradient-to-r from-[white] to-[#daa520] text-transparent bg-clip-text font-semibold text-2xl">
             Water Management{" "}
           </h1>
