@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./Components/LandingPage";
 import SignIn from "./Components/SignIn";
-import Issues from "./Components/Issues";
+import Issues from "./Components/issues";
 import Solution from "./Components/Solution";
 import Details from "./Components/Details";
 import SignUp from "./Components/SignUp";
