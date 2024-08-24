@@ -1,6 +1,6 @@
 import React from "react";
 import { db } from "../config/firebase";
-import FileUpload from "./FileUpload";
+import FileUpload from "../Components/FileUpload"
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 const Issues = () => {
