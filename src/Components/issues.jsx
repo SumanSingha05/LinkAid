@@ -229,9 +229,9 @@ const Issues = () => {
         <div>
           <label>Issue Type:</label>
           <select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="Education">Education</option>
-            <option value="Water Management">Water</option>
-            <option value="Management">management</option>
+            <option value="education">Education</option>
+            <option value="water management">Water Management</option>
+            <option value="management issues">management issues</option>
             <option value="infrastructure">infrastructure</option>
             {/* Add more types as needed */}
           </select>

@@ -144,6 +144,7 @@ const Solution = () => {
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
   const [specialization, setSpecialization] = useState(null);
+  const [userDetails, setUserDetails] = useState({}); // store user details based on uid
 
   useEffect(() => {
     const fetchUserIdAndData = async () => {
@@ -177,6 +178,17 @@ const Solution = () => {
               }));
 
               setProblems(problemsList);
+              // Fetch user details for each problem.uid
+              const userDetailsMap = {};
+              for (const problem of problemsList) {
+                const userDocRef = doc(db, "userDetails", problem.uid);
+                const userDocSnap = await getDoc(userDocRef);
+                if (userDocSnap.exists()) {
+                  userDetailsMap[problem.uid] = userDocSnap.data();
+                }
+              }
+              setUserDetails(userDetailsMap);
+              //
             } else {
               console.log("No such document in ngoDetails!");
             }
@@ -211,7 +223,17 @@ const Solution = () => {
           {problems.map((problem) => (
             <li key={problem.id}>
               <strong>Type:</strong> {problem.type} - <strong>Details:</strong>{" "}
-              {JSON.stringify(problem.details)}
+              {/* {JSON.stringify(problem.details)} */}
+              {userDetails[problem.uid] ? (
+                <div>
+                  <p>Name: {userDetails[problem.uid].name}</p>
+                  <p>District: {userDetails[problem.uid].district}</p>
+                  <p>Phone: {userDetails[problem.uid].phone}</p>
+                  <p>address: {userDetails[problem.uid].address}</p>
+                </div>
+              ) : (
+                <p></p>
+              )}
             </li>
           ))}
         </ul>
