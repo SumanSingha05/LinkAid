@@ -172,7 +172,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const Issues = () => {
   const [uid, setUid] = useState("");
   const [type, setType] = useState("education");
-  const [file, setFile] = useState(null);
+  //const [file, setFile] = useState(null);
   const [stationary, setStationary] = useState(false);
   const [teaching_materials, setTeaching_materials] = useState(false);
   const [furniture, setFurniture] = useState(false);
@@ -207,18 +207,12 @@ const Issues = () => {
         details: {
           stationary: stationary,
           teaching_materials: teaching_materials,
-        },
-        details: {
           drainage: drainage,
           purification: purification,
-        },
-        details: {
-          furniture: furniture,
-          sanitation_facilities: sanitation_facilities,
-        },
-        details: {
           security: security,
           staff_management: staff_management,
+          furniture: furniture,
+          sanitation_facilities: sanitation_facilities,
         },
       });
       setMessage(`Problem report added with ID: ${docRef.id}`);
@@ -264,7 +258,7 @@ const Issues = () => {
               onChange={(e) => setTeaching_materials(e.target.checked)}
             />
             Teaching Materials Requirement
-          </label>{" "}
+          </label>
           <br />
           <FileUpload />
         </div>
@@ -311,7 +305,7 @@ const Issues = () => {
               checked={staff_management}
               onChange={(e) => setStaff_management(e.target.checked)}
             />
-            Purification
+            staff management
           </label>
           <br />
           <FileUpload />
