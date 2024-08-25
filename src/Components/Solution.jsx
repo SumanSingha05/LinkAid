@@ -89,14 +89,14 @@ const Solution = () => {
       <h1 className="font-bold mt-10 font-serif text-4xl text-violet-900 text-center">
         Solutions
       </h1>
-      <div className="border-none py-10 px-10 rounded-lg h-auto bg-[#ffffff85] mt-36 border-black w-[20vw]">
+      <div className="border-none sm:py-10 sm:px-10 rounded-lg h-auto bg-[#ffffff85] mt-36 border-black sm:w-[20vw] h-auto w-auto ">
         {specialization && (
           <p className="font-bold text-xl">
             Your Specialization: {specialization}
           </p>
         )}
         <h1>Problems Matching Your Specialization</h1>
-
+        console.log(problems) console.log(problems.length)
         {problems.length > 0 ? (
           <ul>
             {problems.map((problem) => (
