@@ -11,7 +11,7 @@ import {
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import FileUpload from "./FileUpload";
-
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const Issues = () => {
   const [uid, setUid] = useState("");
   const [type, setType] = useState("education");
@@ -25,6 +25,7 @@ const Issues = () => {
   const [security, setSecurity] = useState(false);
   const [staff_management, setStaff_management] = useState(false);
   const [message, setMessage] = useState("");
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) setUid(user.uid);
@@ -42,7 +43,6 @@ const Issues = () => {
     }
 
     try {
-      console.log("hello");
       const docRef = await addDoc(collection(db, "problems"), {
         uid: uid,
         created_at: Timestamp.now(),
@@ -70,7 +70,7 @@ const Issues = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r font-serif from-violet-500 via-purple-300 to-white h-[100vh] w-[100vw] flex flex-col">
+    <div className="bg-gradient-to-r font-serif from-violet-500 via-purple-300 to-white h-full sm:h-[100vh] w-[100vw] flex flex-col">
       <h1 className="font-serif text-center text-5xl font-semibold text-violet-900 mt-5 mb-5 ">
         Report Issues
       </h1>
@@ -108,8 +108,8 @@ const Issues = () => {
             </select>
           </div>
         </div>
-        <div className="flex flex-row mt-10 ">
-          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+        <div className="flex flex-col sm:flex-row mt-10 ">
+          <div className="w-[80vw] sm:w-1/5 sm:mb-0 mb-5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
             <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
               Education
             </h1>
@@ -136,7 +136,7 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+          <div className="sm:mb-0 mb-5 w-[80vw] sm:w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
             <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
               Water Management
             </h1>
@@ -163,7 +163,7 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+          <div className="sm:mb-0 mb-5 w-[80vw] sm:w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
             <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
               Management Issues
             </h1>
@@ -189,7 +189,7 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+          <div className="sm:mb-0 mb-5 w-[80vw] sm:w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
             <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
               Infrastructure
             </h1>
@@ -217,9 +217,8 @@ const Issues = () => {
         </div>
         <div>
           <button
-            //className="text-white block ml-24 border-2 border-none text-xl p-3 pl-14 pr-14 bg-gradient-to-r from-indigo-500 to-indigo-100 hover:bg-gradient-to-l from-slate-100 to-indigo-500 hover:text-white rounded-full mb-5 hover:bg-white hover:text-orange-400 "
             className=" 
-       relative py-2 rounded-md bg-violet-600 isolation-auto z-10 border-2 border-violet-1000 text-white ml-[48vw] mt-10 py-3 px-5
+       relative py-2 rounded-md bg-violet-600 isolation-auto z-10 border-2 border-violet-1000 text-white mb-5 ml-[36vw] sm:ml-[48vw] mt-10 py-3 px-5
         before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0 before:rounded-full  before:bg-violet-900 before:-z-10  before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700"
             type="submit"
           >

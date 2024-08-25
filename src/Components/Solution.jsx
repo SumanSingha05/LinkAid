@@ -214,12 +214,14 @@ const Solution = () => {
   }
 
   return (
-    <div className=" h-[100vh] bg-gradient-to-tr from-violet-400 via-purple-300 to-white">
-      <h1 className="font-bold font-serif text-2xl">Solutions</h1>
+    <div className=" h-[100vh] flex flex-col items-center bg-gradient-to-tr from-violet-400 via-purple-300 to-white">
+      <h1 className="font-bold mt-10 font-serif text-4xl text-violet-900 text-center">Solutions</h1>
+      <div className="border-none py-10 px-10 rounded-lg h-auto bg-[#ffffff85] mt-36 border-black w-[20vw]">
       {specialization && (
         <p className="font-bold text-xl">
           Your Specialization: {specialization}
         </p>
+        
       )}
       <h1>Problems Matching Your Specialization</h1>
 
@@ -260,6 +262,7 @@ const Solution = () => {
       ) : (
         <p>No problems matching your specialization were found.</p>
       )}
+    </div>
     </div>
   );
 };
