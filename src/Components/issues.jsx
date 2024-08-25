@@ -11,7 +11,7 @@ import {
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import FileUpload from "./FileUpload";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 const Issues = () => {
   const [uid, setUid] = useState("");
   const [type, setType] = useState("education");
@@ -42,6 +42,7 @@ const Issues = () => {
     }
 
     try {
+      console.log("hello");
       const docRef = await addDoc(collection(db, "problems"), {
         uid: uid,
         created_at: Timestamp.now(),
@@ -50,16 +51,13 @@ const Issues = () => {
         details: {
           stationary: stationary,
           teaching_materials: teaching_materials,
-        
-       
+
           drainage: drainage,
           purification: purification,
-       
-      
+
           furniture: furniture,
           sanitation_facilities: sanitation_facilities,
-       
-       
+
           security: security,
           staff_management: staff_management,
         },
@@ -73,28 +71,52 @@ const Issues = () => {
 
   return (
     <div className="bg-gradient-to-r font-serif from-violet-500 via-purple-300 to-white h-[100vh] w-[100vw] flex flex-col">
-      <h1 className='font-serif text-center text-5xl font-semibold text-violet-900 mt-5 mb-5 '>Report Issues</h1>
+      <h1 className="font-serif text-center text-5xl font-semibold text-violet-900 mt-5 mb-5 ">
+        Report Issues
+      </h1>
 
       <form onSubmit={handleSubmit}>
         <div className="border-2 mt-5 border-black border-none flex items-center justify-center">
-          <label className="text-violet-900 text-xl font-semibold mt-5 mb-5">Issue Type:</label>
+          <label className="text-violet-900 text-xl font-semibold mt-5 mb-5">
+            Issue Type:
+          </label>
           <div className="border-2 rounded-full border-solid w-52 border-violet-900">
-            <select className="bg-transparent border-none outline-none w-52 py-2 pl-2" value={type} onChange={(e) => setType(e.target.value)}>
-              <option className='text-white bg-violet-900' value="Select">Select Field</option>
-              <option className='text-white bg-violet-800' value="education">Education</option>
-              <option className='text-white bg-violet-700' value="water">Water</option>
-              <option className='text-white bg-violet-600' value="management">Management</option>
-              <option className='text-white bg-violet-500' value="infrastructure">Infrastructure</option>
+            <select
+              className="bg-transparent border-none outline-none w-52 py-2 pl-2"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option className="text-white bg-violet-900" value="Select">
+                Select Field
+              </option>
+              <option className="text-white bg-violet-800" value="education">
+                Education
+              </option>
+              <option className="text-white bg-violet-700" value="water">
+                Water
+              </option>
+              <option className="text-white bg-violet-600" value="management">
+                Management
+              </option>
+              <option
+                className="text-white bg-violet-500"
+                value="infrastructure"
+              >
+                Infrastructure
+              </option>
               {/* Add more types as needed */}
             </select>
           </div>
         </div>
         <div className="flex flex-row mt-10 ">
-          <div className='w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly'>
-            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">Education</h1>
+          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
+              Education
+            </h1>
             <label className="text-white">
               <h1></h1>
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={stationary}
                 onChange={(e) => setStationary(e.target.checked)}
@@ -102,7 +124,8 @@ const Issues = () => {
               Stationary
             </label>
             <label className="text-white">
-              <input className="ml-10"
+              <input
+                className="ml-10"
                 type="checkbox"
                 checked={teaching_materials}
                 onChange={(e) => setTeaching_materials(e.target.checked)}
@@ -113,10 +136,13 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className='w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly'>
-            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">Water Management</h1>
+          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
+              Water Management
+            </h1>
             <label className="text-white">
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={drainage}
                 onChange={(e) => setDrainage(e.target.checked)}
@@ -124,8 +150,9 @@ const Issues = () => {
               Drainage
             </label>
 
-            <label className='text-white'>
-              <input className="text-white ml-10"
+            <label className="text-white">
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={purification}
                 onChange={(e) => setPurification(e.target.checked)}
@@ -136,10 +163,13 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className='w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly'>
-            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">Management Issues</h1>
+          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
+              Management Issues
+            </h1>
             <label className="text-white">
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={security}
                 onChange={(e) => setSecurity(e.target.checked)}
@@ -147,7 +177,8 @@ const Issues = () => {
               Security
             </label>
             <label className="text-white">
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={staff_management}
                 onChange={(e) => setStaff_management(e.target.checked)}
@@ -158,10 +189,13 @@ const Issues = () => {
             <FileUpload />
           </div>
 
-          <div className='w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly'>
-            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">Infrastructure</h1>
+          <div className="w-1/5 mr-10 ml-10 h-[50vh] border-0 bg-gradient-to-br from-[#381e85] to-[rgba(67,58,58,0.39)] border-black border-solid rounded-lg flex flex-col justify-evenly">
+            <h1 className="text-center bg-gradient-to-r from-white to-[#daa520] text-2xl font-serif text-transparent bg-clip-text font-semibold ">
+              Infrastructure
+            </h1>
             <label className="text-white">
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={furniture}
                 onChange={(e) => setFurniture(e.target.checked)}
@@ -169,7 +203,8 @@ const Issues = () => {
               Furniture Requirement
             </label>
             <label className="text-white">
-              <input className="text-white ml-10"
+              <input
+                className="text-white ml-10"
                 type="checkbox"
                 checked={sanitation_facilities}
                 onChange={(e) => setSanitation_facilities(e.target.checked)}
