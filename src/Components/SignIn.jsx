@@ -19,7 +19,7 @@ const SignIn = () => {
         if (userDoc.exists()) {
           navigate("/issues");
         } else if (ngoDoc.exists()) {
-          navigate("/solutions");
+          navigate("/solution");
         }
       })
       .catch((error) => {
@@ -39,7 +39,7 @@ const SignIn = () => {
         if (userDoc.exists()) {
           navigate("/issues");
         } else if (ngoDoc.exists()) {
-          navigate("/solutions");
+          navigate("/solution");
         }
       })
       .catch((error) => {
@@ -48,12 +48,15 @@ const SignIn = () => {
   };
 
   return (
-    <div className='h-[100vh] w-[100vw] grid place-content-center text-purple-900 bg-gradient-to-r from-violet-500 via-purple-300 to-white'>
+    <div className="h-[100vh] w-[100vw] grid place-content-center text-purple-900 bg-gradient-to-r from-violet-500 via-purple-300 to-white">
       <div className="bg-[#ffffff68] p-20 py-20 px-16">
-        <h1 className="text-center text-3xl font-semibold text-purple-900 mb-10">Sign In</h1>
+        <h1 className="text-center text-3xl font-semibold text-purple-900 mb-10">
+          Sign In
+        </h1>
         <div className="flex flex-col items-center">
           <div className="border-2 border-purple-900 mb-10 border-solid w-72 rounded-full">
-            <input className='bg-transparent placeholder:text-purple-900 border-none outline-none py-3 pl-5 w-72'
+            <input
+              className="bg-transparent placeholder:text-purple-900 border-none outline-none py-3 pl-5 w-72"
               type="email"
               placeholder="Email"
               value={email}
@@ -61,7 +64,8 @@ const SignIn = () => {
             />
           </div>
           <div className="border-2 border-purple-900 border-solid w-72 mb-10 rounded-full ">
-            <input className="border-none bg-transparent placeholder:text-purple-900 py-3 pl-5"
+            <input
+              className="border-none bg-transparent placeholder:text-purple-900 py-3 pl-5"
               type="password"
               placeholder="Password"
               value={password}

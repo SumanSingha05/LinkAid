@@ -66,7 +66,7 @@ const AuthContextProvider = ({ children }) => {
       if (userDoc.exists()) {
         navigate("/issues");
       } else if (ngoDoc.exists()) {
-        navigate("/solutions");
+        navigate("/solution");
       } else {
         console.error("User details not found in Firestore.");
         setError("User details not found. Please contact support.");
