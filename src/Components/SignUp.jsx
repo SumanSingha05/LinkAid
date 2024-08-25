@@ -26,13 +26,11 @@ const SignUp = () => {
       console.error(err);
     }
   };
-
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
-
   return (
-    <div className="flex flex-row bg-gradient-to-r from-violet-600 via-purple-400 to-white flex-wrap">
+    <div className="flex flex-row bg-gradient-to-r from-violet-500 via-purple-300 to-white flex-wrap">
       <div className="h-[100vh] w-[100vw] grid place-content-center font-mono">
         <div className="border-none border-violet-900 w-96 h-[80vh] pt-[15px] text-violet-900 rounded-lg bg-[#ffffff49]">
           <h1 className="text-4xl text-center p-5 font-bold mb-10">Sign Up</h1>
@@ -100,10 +98,10 @@ const SignUp = () => {
         </div>
       </div>
       {/* <div className="w-1/2 m-auto p-10 ">
-        <img className="" src={img4} alt="" />
-      </div> */}
+          <img className="" src={img4} alt="" />
+        </div> */}
     </div>
   );
 };
 
-export default SignUp;
+export default SignUp; 
