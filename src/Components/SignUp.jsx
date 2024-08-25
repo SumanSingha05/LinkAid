@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import img4 from "./Context/New4.png";
 import { auth, googleProvider } from "../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 const SignUp = () => {
@@ -104,4 +103,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp; 
+export default SignUp;

@@ -36,7 +36,7 @@ const Details = () => {
       if (accountType === "ngo") {
         data.specialization = specialization;
         await setDoc(doc(db, "ngoDetails", user.uid), data);
-        navigate("/solutions");
+        navigate("/solution");
       } else {
         await setDoc(doc(db, "userDetails", user.uid), data);
         navigate("/issues");
@@ -129,8 +129,8 @@ const Details = () => {
                 >
                   Water Management
                 </option>
-                <option className="bg-white text-black" value="security">
-                  Security
+                <option className="bg-white text-black" value="infrastructure">
+                  Infrastructure
                 </option>
                 <option className="bg-white text-black" value="education">
                   Education
