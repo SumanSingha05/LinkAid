@@ -214,12 +214,14 @@ const Solution = () => {
   }
 
   return (
-    
     <div className=" h-[100vh] bg-gradient-to-tr from-violet-400 via-purple-300 to-white">
       <h1 className="font-bold font-serif text-2xl">Solutions</h1>
-      {specialization && <p className="font-bold text-xl">Your Specialization: {specialization}</p>}
+      {specialization && (
+        <p className="font-bold text-xl">
+          Your Specialization: {specialization}
+        </p>
+      )}
       <h1>Problems Matching Your Specialization</h1>
-      
 
       {problems.length > 0 ? (
         <ul>
@@ -233,6 +235,21 @@ const Solution = () => {
                   <p>District: {userDetails[problem.uid].district}</p>
                   <p>Phone: {userDetails[problem.uid].phone}</p>
                   <p>address: {userDetails[problem.uid].address}</p>
+
+                  {/* //pic render */}
+                  {problem.file_url && (
+                    <div>
+                      <p>
+                        <a
+                          href={problem.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Uploaded Document
+                        </a>
+                      </p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <p></p>
