@@ -8,24 +8,35 @@ import {
   doc,
   getDoc,
 } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Solution = () => {
   const [issues, setIssues] = useState([]);
   const auth = getAuth();
-
+ 
+  console.log()
   useEffect(() => {
     const fetchIssuesAndUserDetails = async () => {
-      const user = auth.currentUser;
+      // const user = auth.currentUser;
+      // console.log(user);
 
-      if (!user) {
-        console.error("User not authenticated");
-        return;
-      }
+      // if (!user) {
+      //   console.error("User not authenticated");
+      //   return;
+      // }
 
+      const unsubscribe=onAuthStateChanged(auth,currentUser=>{
+        
+      })
+
+      if(!(auth.currentUser)) return;
+
+      console.log(auth.currentUser.uid)
       // Fetch NGO's specialization
-      const ngoDoc = await getDoc(doc(db, "ngoDetails", ngoDetails.uid));
-      if (!ngoDoc.exists()) {
+      // const ngoDoc = await getDoc(doc(db, "ngoDetails", ngoDetails.uid));
+      const qm = query(collection(db,"ngoDetails"), where("uid", "==", auth.currentUser.uid));
+      const qs = await getDocs(qm);
+      if (!(qs.exists())) {
         console.error("NGO details not found");
         return;
       }
@@ -59,7 +70,7 @@ const Solution = () => {
     };
 
     fetchIssuesAndUserDetails();
-  }, [auth]);
+  }, [auth.currentUser]);
 
   return (
     <div>
