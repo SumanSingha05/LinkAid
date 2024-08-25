@@ -124,7 +124,7 @@ const Details = () => {
                   Select Specialization
                 </option>
                 <option
-                  className="bg-white text-black"
+                  className="bg-purple text-black"
                   value="water management"
                 >
                   Water Management
