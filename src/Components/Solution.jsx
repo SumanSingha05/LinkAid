@@ -214,9 +214,12 @@ const Solution = () => {
   }
 
   return (
-    <div>
+    
+    <div className=" h-[100vh] bg-gradient-to-tr from-violet-400 via-purple-300 to-white">
+      <h1 className="font-bold font-serif text-2xl">Solutions</h1>
+      {specialization && <p className="font-bold text-xl">Your Specialization: {specialization}</p>}
       <h1>Problems Matching Your Specialization</h1>
-      {specialization && <p>Your Specialization: {specialization}</p>}
+      
 
       {problems.length > 0 ? (
         <ul>
