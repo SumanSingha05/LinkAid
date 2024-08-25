@@ -129,8 +129,8 @@ const Details = () => {
                 >
                   Water Management
                 </option>
-                <option className="bg-white text-black" value="security">
-                  Security
+                <option className="bg-white text-black" value="infrastructure">
+                  Infrastructure
                 </option>
                 <option className="bg-white text-black" value="education">
                   Education
