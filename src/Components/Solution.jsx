@@ -96,7 +96,7 @@ const Solution = () => {
           </p>
         )}
         <h1>Problems Matching Your Specialization</h1>
-        console.log(problems) console.log(problems.length)
+
         {problems.length > 0 ? (
           <ul>
             {problems.map((problem) => (
