@@ -19,8 +19,8 @@ const FileUpload = () => {
   return (
 
     <div>
-      <input className='ml-20' type="file" onChange={(e) => setFileUpload(e.target.files[0])} />
-      <button className='border-black border-2 border-solid ml-32 mt-4 mb-2 p-2 pl-4 pr-4 rounded-full bg-[#413176] text-[#ffffff] border-none ' onClick={uploadFile}>Upload File</button>
+      <input className='ml-10 mb-5' type="file" onChange={(e) => setFileUpload(e.target.files[0])} />
+      <button className='border-black border-2 border-solid ml-20 mt-4 mb-2 p-2 pl-4 pr-4 rounded-full bg-[#413176] text-[#ffffff] border-none ' onClick={uploadFile}>Upload File</button>
     </div>
   )
 }
