@@ -104,7 +104,7 @@ const Issues = () => {
               >
                 Infrastructure
               </option>
-              {/* Add more types as needed */}
+              {/* Add more types as needed   */}
             </select>
           </div>
         </div>
