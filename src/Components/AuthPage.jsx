@@ -112,7 +112,7 @@ const AuthPage = () => {
         </button>
 
         <button
-          className="w-full bg-red-500 text-white py-2 rounded-full hover:bg-red-600"
+          className="w-full bg-black text-white py-2 rounded-full hover:bg-red-600"
           onClick={handleGoogleSignIn}
         >
           Sign In with Google
